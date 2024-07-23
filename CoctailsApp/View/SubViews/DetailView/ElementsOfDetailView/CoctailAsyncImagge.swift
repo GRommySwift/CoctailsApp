@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CoctailAsyncImage: View {
+    let widthOfImage: CGFloat
+    let withText: Bool
+ //   let heightOfImage: CGFloat
     let coctail: Drink
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -21,19 +24,21 @@ struct CoctailAsyncImage: View {
                             .cornerRadius(33)
                             .padding()
                             .shadow(color: .black.opacity(0.2), radius: 8, x: 5, y: 8)
-                            .frame(width: UIScreen.main.bounds.width)
+                            .frame(width: widthOfImage)
                     }
                 }
             }
-            Text(coctail.strDrink)
-                .frame(width: UIScreen.main.bounds.width - 32, height: 60)
-                .background(Color.white)
-                .cornerRadius(30, corners: .bottomLeft)
-                .cornerRadius(30, corners: .bottomRight)
-                .font(.title2)
-                .fontWeight(.bold)
-                .foregroundColor(.cyan).opacity(0.9)
-                .padding(.bottom, 15)
+            if withText {
+                Text(coctail.strDrink)
+                    .frame(width: widthOfImage - 32, height: 60)
+                    .background(Color.white)
+                    .cornerRadius(30, corners: .bottomLeft)
+                    .cornerRadius(30, corners: .bottomRight)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.cyan).opacity(0.9)
+                    .padding(.bottom, 15)
+            }
             
         }
     }

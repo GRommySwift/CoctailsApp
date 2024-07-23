@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct RandomCoctailModel: Decodable {
+struct RandomCoctailModel: Decodable, Equatable {
+  
     let drinks: [Drink]
 }
 
-struct Drink: Decodable {
+struct Drink: Decodable, Equatable {
     let idDrink, strDrink, strCategory, strAlcoholic: String
     let strInstructions: String
     let strDrinkThumb: String?
@@ -23,6 +24,8 @@ struct Drink: Decodable {
     let strMeasure5, strMeasure6, strMeasure7: String?
     let strMeasure8, strMeasure9, strMeasure10, strMeasure11: String?
     let strMeasure12, strMeasure13, strMeasure14, strMeasure15: String?
-    
+ 
+    static func == (lhs: Drink, rhs: Drink) -> Bool {
+            return lhs.idDrink == rhs.idDrink
+        }
 }
-

@@ -25,6 +25,10 @@ struct TabBarView: View {
                 SearchCoctailByIngridient()
                     .tag(3)
             }
+
+        
+            
+            
             
             ZStack {
                 HStack {
@@ -40,15 +44,13 @@ struct TabBarView: View {
             }
             .frame(height: 80)
             .background(.black.opacity(0.2))
-            .cornerRadius(40, corners: .bottomLeft)
-            .cornerRadius(0, corners: .bottomRight)
-            .cornerRadius(0, corners: .topLeft)
-            .cornerRadius(40, corners: .topRight)
+            .cornerRadius(40)
             .padding(.horizontal, 26)
-            
+
         }
-        
+
     }
+        
 }
 
 extension TabBarView {
@@ -69,10 +71,7 @@ extension TabBarView {
         }
         .frame(width: isActive ? 140 : 60, height: 60)
         .background(isActive ? .cyan.opacity(0.4) : .clear)
-        .cornerRadius(30, corners: .bottomLeft)
-        .cornerRadius(0, corners: .bottomRight)
-        .cornerRadius(0, corners: .topLeft)
-        .cornerRadius(30, corners: .topRight)
+        .cornerRadius(30)
     }
 }
 

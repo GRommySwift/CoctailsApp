@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct CoctailsAppApp: App {
+struct CoctailsApp: App {
     var body: some Scene {
         WindowGroup {
             TabBarView()

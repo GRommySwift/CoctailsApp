@@ -18,7 +18,7 @@ enum TabbedItems: Int, CaseIterable{
         case .coctail:
             return "Coctails"
         case .random:
-            return "Random Coctail"
+            return "Random"
         case .searchByName:
             return "by name"
         case .searchByIngridient:
