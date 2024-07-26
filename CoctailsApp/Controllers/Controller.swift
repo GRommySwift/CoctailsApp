@@ -9,14 +9,21 @@ import SwiftUI
 
 @MainActor
 final class Controller: ObservableObject {
-    @Published var isLoading = true
+    @Published var isLoading = false
     @Published var tenRandomCoctails: [Drink] = []
     @Published var randomCoctail: [Drink] = []
+    @Published var serchedCoctailsByName: [Drink] = []
     @Published var recipe: RecipeModel = RecipeModel(ingredients: [], proportions: [])
+    @Published var errorMessage: String?
     
     init() {
         fetchRandomCoctail()
         fetchTenRandomCoctails()
+        
+    }
+    
+    func clearSerchedCoctails() {
+        serchedCoctailsByName = []
     }
     
     func fetchRandomCoctail() {
@@ -25,6 +32,7 @@ final class Controller: ObservableObject {
                 let coctail = try await NetworkManager.shared.getCoctails(url: URLConstans.randomCoctailURL)
                 randomCoctail = coctail.drinks
                 recipe = parseAndFilterRecipe(from: randomCoctail)
+                
             } catch {
                 if let error = error as? NetworkError {
                     print(error)
@@ -50,6 +58,24 @@ final class Controller: ObservableObject {
             } catch {
                 if let error = error as? NetworkError {
                     print(error)
+                }
+            }
+        }
+    }
+    
+    func searchCoctailByName(coctailName: String) {
+        guard !coctailName.isEmpty else { return }
+        let url = "\(URLConstans.serchCoctailByNameURL)" + "\(coctailName.lowercased())"
+        isLoading = true
+        Task {
+            do {
+                let coctail = try await NetworkManager.shared.getCoctails(url: url)
+                self.serchedCoctailsByName = coctail.drinks
+                self.isLoading = false
+            } catch {
+                if let error = error as? NetworkError {
+                self.errorMessage = error.localizedDescription
+                self.isLoading = false
                 }
             }
         }

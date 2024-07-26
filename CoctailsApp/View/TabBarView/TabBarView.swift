@@ -9,6 +9,16 @@ import SwiftUI
 
 struct TabBarView: View {
     @State private var selectedIndex: Int = 0
+    
+    init() {
+        
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = UIColor.clear
+        UITabBar.appearance().standardAppearance = appearance
+        
+    }
+    
     var body: some View {
         
         ZStack(alignment: .bottom) {
@@ -43,7 +53,7 @@ struct TabBarView: View {
                 .padding(6)
             }
             .frame(height: 80)
-            .background(.black.opacity(0.2))
+            .background(.indigo.opacity(0.6))
             .cornerRadius(40)
             .padding(.horizontal, 26)
 
@@ -70,7 +80,7 @@ extension TabBarView {
             Spacer()
         }
         .frame(width: isActive ? 140 : 60, height: 60)
-        .background(isActive ? .cyan.opacity(0.4) : .clear)
+        .background(isActive ? .white.opacity(0.6) : .clear)
         .cornerRadius(30)
     }
 }

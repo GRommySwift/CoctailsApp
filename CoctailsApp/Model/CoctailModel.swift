@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct RandomCoctailModel: Decodable, Equatable {
+struct CoctailModel: Decodable, Equatable {
   
     let drinks: [Drink]
 }
 
-struct Drink: Decodable, Equatable {
+struct Drink: Decodable, Equatable, Identifiable {
+    var id: String { idDrink}
     let idDrink, strDrink, strCategory, strAlcoholic: String
     let strInstructions: String
     let strDrinkThumb: String?

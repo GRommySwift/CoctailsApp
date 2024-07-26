@@ -10,4 +10,5 @@ import Foundation
 struct URLConstans {
     
     static var randomCoctailURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+    static var serchCoctailByNameURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 }

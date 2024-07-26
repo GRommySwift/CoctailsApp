@@ -13,16 +13,14 @@ struct DescriptionCoctail: View {
     var body: some View {
         VStack(spacing: 5) {
             Text("Category - \(coctail.strCategory)" + " " + "(\(coctail.strAlcoholic))")
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundColor(Color.orange.opacity(0.8))
-            
+                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(Color.red).opacity(0.8)
+                .padding(.horizontal, 20)
             Text("Instruction:")
-                .foregroundColor(Color.cyan)
+                .foregroundColor(Color.black)
             Text(coctail.strInstructions)
-                .foregroundColor(Color.cyan)
-                .padding(.leading, 20)
-                .padding(.trailing, 20)
+                .foregroundColor(Color.white)
+                .padding(.horizontal, 20)
             
             Text("Ingridients")
                 .font(.headline)

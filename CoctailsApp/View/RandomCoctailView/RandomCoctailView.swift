@@ -17,14 +17,14 @@ struct RandomCoctailView: View {
                 
                 VStack(spacing: 10) {
                     ForEach(controller.randomCoctail, id: \.idDrink) { coctail in
-                        DetailView(widthOfImage: UIScreen.main.bounds.width, coctail: coctail)
+                        DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 0, buttonIsHidden: true, coctail: coctail)
                         
                         .shadow(radius: 1)
                     }
                 }
             //}
             
-            .background(.blue.opacity(0.2))
+                
             .refreshable {
                 controller.fetchRandomCoctail()
             }
