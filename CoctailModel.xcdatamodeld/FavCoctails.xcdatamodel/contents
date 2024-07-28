@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22G120" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DrinkEntity" representedClassName="DrinkEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="idDrink" attributeType="String"/>
+        <attribute name="strAlcoholic" attributeType="String"/>
+        <attribute name="strCategory" attributeType="String"/>
+        <attribute name="strDrink" attributeType="String"/>
+        <attribute name="strDrinkThumb" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient1" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient2" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient3" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient4" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient5" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient6" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient7" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient8" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient9" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient10" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient11" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient12" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient13" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient14" optional="YES" attributeType="String"/>
+        <attribute name="strIngredient15" optional="YES" attributeType="String"/>
+        <attribute name="strInstructions" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure1" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure2" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure3" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure4" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure5" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure6" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure7" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure8" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure9" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure10" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure11" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure12" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure13" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure14" optional="YES" attributeType="String"/>
+        <attribute name="strMeasure15" optional="YES" attributeType="String"/>
+    </entity>
+</model>

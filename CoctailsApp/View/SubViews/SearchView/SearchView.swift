@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SearchView: View {
-    //@StateObject var controller = Controller()
-    var isSerchByNameOfCoctail: Bool
-    let searchByName: ()
-    let defaultText: String
     @Binding var searchText: String
+    let searchFunction: @MainActor (String) -> ()
+    let clearSearchedCoctails: @MainActor () -> ()
+    let defaultText: String
+    
     var body: some View {
         HStack {
             TextField(defaultText, text: $searchText)
@@ -34,7 +34,7 @@ struct SearchView: View {
                         .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         .onTapGesture {
                             searchText = ""
-                            
+                            clearSearchedCoctails()
                         }
                     , alignment: .trailing
                 )
@@ -48,11 +48,7 @@ struct SearchView: View {
                         .padding()
                         .offset(x: -26)
                         .onTapGesture {
-//                            if isSerchByNameOfCoctail {
-                            searchByName
-//                            } else {
-//                                //
-//                            }
+                            searchFunction(searchText)
                         }
                     , alignment: .leading
                 )

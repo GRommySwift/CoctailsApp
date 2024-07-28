@@ -9,21 +9,24 @@ import SwiftUI
 
 struct SearchCoctailByName: View {
     @StateObject var controller = Controller()
-    @State private var inputText: String = ""
+    @State var inputText: String = ""
     var body: some View {
         NavigationView {
             ScrollView {
-                SearchView(isSerchByNameOfCoctail: true, searchByName: controller.searchCoctailByName(coctailName: inputText), defaultText: "Type the name of coctail", searchText: $inputText )
-                    ForEach(controller.serchedCoctailsByName) { coctail in
+                SearchView(searchText: $inputText, searchFunction: controller.searchCoctailByName, clearSearchedCoctails: controller.clearSearchedCoctails, defaultText: "Type the name of coctail")
+                ForEach(controller.serchedCoctailsByName, id: \.idDrink) { coctail in
                         HStack {
-                            NavigationLink(destination: DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 20, buttonIsHidden: false, coctail: coctail)) {
+                            NavigationLink(destination: DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, coctail: coctail, isFavorite: { controller.isFavorite(coctail: coctail) } , addFavorite: { controller.addFavorite(coctail: coctail) }, removeFavorite: {  controller.removeFavorite(coctail: coctail) })) {
                                 BigElementDrink(coctail: coctail)
                             }
                         }
                     }
             }
+            .background(.linearGradient(Gradient(colors: [.mint.opacity(0.8), .indigo.opacity(0.6)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+        
         }
     }
+    
 }
 
 struct SearchCoctailByName_Previews: PreviewProvider {

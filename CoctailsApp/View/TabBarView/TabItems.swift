@@ -20,9 +20,9 @@ enum TabbedItems: Int, CaseIterable{
         case .random:
             return "Random"
         case .searchByName:
-            return "by name"
+            return "By name"
         case .searchByIngridient:
-            return "by ingridient"
+            return "Favorite"
         }
     }
     
@@ -33,9 +33,9 @@ enum TabbedItems: Int, CaseIterable{
         case .random:
             return "random"
         case .searchByName:
-            return "searchName"
-        case .searchByIngridient:
             return "search"
+        case .searchByIngridient:
+            return "star"
         }
     }
 }

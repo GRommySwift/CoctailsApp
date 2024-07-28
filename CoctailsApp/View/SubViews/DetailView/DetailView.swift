@@ -14,8 +14,13 @@ struct DetailView: View {
     let topPadding: CGFloat
     let buttonIsHidden: Bool
     let coctail: Drink
+    let isFavorite: @MainActor () -> Bool
+    let addFavorite: @MainActor () -> Void
+    let removeFavorite: @MainActor () -> Void
     var body: some View {
+        
         ZStack(alignment: .topLeading) {
+            
             ScrollView(.vertical, showsIndicators: false) {
                 CoctailAsyncImage(widthOfImage: widthOfImage, withText: true, coctail: coctail)
                 DescriptionCoctail(coctail: coctail)
@@ -26,9 +31,16 @@ struct DetailView: View {
            // .ignoresSafeArea()
             .toolbar(.hidden, for: .navigationBar)
             .background(.linearGradient(Gradient(colors: [.mint.opacity(0.8), .indigo.opacity(0.6)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-            if !buttonIsHidden {
-                BackButtonView()
-                    .padding(.leading, 20)
+            
+            HStack{
+                if !buttonIsHidden {
+                    BackButtonView()
+                        .padding(.leading, 20)
+                }
+                Spacer()
+                FavoriteButton(coctail: coctail, isFavorite: isFavorite() , addFavorite: addFavorite, removeFavorite: removeFavorite)
+                    .padding(.trailing, 20)
+                    .foregroundColor(.orange)
             }
             
         }

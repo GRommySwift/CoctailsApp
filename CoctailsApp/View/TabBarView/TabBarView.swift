@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
     @State private var selectedIndex: Int = 0
+    @StateObject var controller = Controller()
     
     init() {
         
@@ -32,8 +33,9 @@ struct TabBarView: View {
                 SearchCoctailByName()
                     .tag(2)
                 
-                SearchCoctailByIngridient()
+                FavoriteCoctailView()
                     .tag(3)
+                    .environmentObject(controller)
             }
 
         

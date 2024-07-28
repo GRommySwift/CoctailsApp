@@ -13,25 +13,28 @@ struct RandomCoctailView: View {
     
     var body: some View {
         NavigationView {
-//ScrollView(.vertical, showsIndicators: false) {
-                
-                VStack(spacing: 10) {
-                    ForEach(controller.randomCoctail, id: \.idDrink) { coctail in
-                        DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 0, buttonIsHidden: true, coctail: coctail)
-                        
+            //ScrollView(.vertical, showsIndicators: false) {
+            
+            VStack(spacing: 10) {
+                ForEach(controller.randomCoctail, id: \.idDrink) { coctail in
+                    DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, coctail: coctail, isFavorite: { controller.isFavorite(coctail: coctail) } , addFavorite: { controller.addFavorite(coctail: coctail) }, removeFavorite: {  controller.removeFavorite(coctail: coctail) })
+                    
                         .shadow(radius: 1)
-                    }
+                    
                 }
-            //}
-            
                 
-            .refreshable {
-                controller.fetchRandomCoctail()
+                //}
+                
+                
+                .refreshable {
+                    controller.fetchRandomCoctail()
+                }
+                
+                
             }
-            
-            
         }
     }
+}
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
@@ -39,4 +42,3 @@ struct RandomCoctailView: View {
         }
     }
     
-}

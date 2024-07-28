@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3066D9422C555E3E00CBEEFB /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3066D9412C555E3E00CBEEFB /* FavoriteButton.swift */; };
 		30AA2B632C515338005F49C2 /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA2B622C515338005F49C2 /* BackButtonView.swift */; };
 		30AA2B662C515EEB005F49C2 /* BigElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA2B652C515EEB005F49C2 /* BigElement.swift */; };
+		30AA4DAD2C56A4D200BCFAF1 /* CoctailModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30AA4DAB2C56A4D200BCFAF1 /* CoctailModel.xcdatamodeld */; };
+		30AA4DAF2C56ADA500BCFAF1 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA4DAE2C56ADA500BCFAF1 /* PersistenceController.swift */; };
 		30B520532C5011D3003A0A75 /* DescriptionCoctail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B520522C5011D3003A0A75 /* DescriptionCoctail.swift */; };
 		30B520592C5020B1003A0A75 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B520582C5020B1003A0A75 /* DetailView.swift */; };
 		30BE314A2C4D4CCF00939AED /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE31492C4D4CCF00939AED /* RecipeModel.swift */; };
 		30BE314C2C4D5D6200939AED /* RandomCoctailIgridients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE314B2C4D5D6200939AED /* RandomCoctailIgridients.swift */; };
 		30BE314E2C4D5EF600939AED /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE314D2C4D5EF600939AED /* TabBarView.swift */; };
 		30BE31542C4D657200939AED /* CoctailsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE31532C4D657200939AED /* CoctailsMainView.swift */; };
-		30BE31562C4D659100939AED /* SearchCoctailByIngridient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE31552C4D659100939AED /* SearchCoctailByIngridient.swift */; };
+		30BE31562C4D659100939AED /* FavoriteCoctailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE31552C4D659100939AED /* FavoriteCoctailView.swift */; };
 		30BE31582C4D65C200939AED /* SearchCoctailByName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE31572C4D65C200939AED /* SearchCoctailByName.swift */; };
 		30BE315A2C4D670F00939AED /* TabItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BE31592C4D670F00939AED /* TabItems.swift */; };
 		30CA6AAF2C4A88D40002A9C4 /* CoctailsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CA6AAE2C4A88D40002A9C4 /* CoctailsApp.swift */; };
@@ -32,15 +35,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3066D9412C555E3E00CBEEFB /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		30AA2B622C515338005F49C2 /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		30AA2B652C515EEB005F49C2 /* BigElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigElement.swift; sourceTree = "<group>"; };
+		30AA4DAC2C56A4D200BCFAF1 /* FavCoctails.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavCoctails.xcdatamodel; sourceTree = "<group>"; };
+		30AA4DAE2C56ADA500BCFAF1 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		30B520522C5011D3003A0A75 /* DescriptionCoctail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCoctail.swift; sourceTree = "<group>"; };
 		30B520582C5020B1003A0A75 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		30BE31492C4D4CCF00939AED /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		30BE314B2C4D5D6200939AED /* RandomCoctailIgridients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCoctailIgridients.swift; sourceTree = "<group>"; };
 		30BE314D2C4D5EF600939AED /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		30BE31532C4D657200939AED /* CoctailsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctailsMainView.swift; sourceTree = "<group>"; };
-		30BE31552C4D659100939AED /* SearchCoctailByIngridient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoctailByIngridient.swift; sourceTree = "<group>"; };
+		30BE31552C4D659100939AED /* FavoriteCoctailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoctailView.swift; sourceTree = "<group>"; };
 		30BE31572C4D65C200939AED /* SearchCoctailByName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoctailByName.swift; sourceTree = "<group>"; };
 		30BE31592C4D670F00939AED /* TabItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItems.swift; sourceTree = "<group>"; };
 		30CA6AAB2C4A88D40002A9C4 /* CoctailsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoctailsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +108,7 @@
 				30BE314B2C4D5D6200939AED /* RandomCoctailIgridients.swift */,
 				30B520522C5011D3003A0A75 /* DescriptionCoctail.swift */,
 				30AA2B622C515338005F49C2 /* BackButtonView.swift */,
+				3066D9412C555E3E00CBEEFB /* FavoriteButton.swift */,
 			);
 			path = ElementsOfDetailView;
 			sourceTree = "<group>";
@@ -126,7 +133,7 @@
 		30BE31512C4D64EC00939AED /* SearchCoctailByIngridient */ = {
 			isa = PBXGroup;
 			children = (
-				30BE31552C4D659100939AED /* SearchCoctailByIngridient.swift */,
+				30BE31552C4D659100939AED /* FavoriteCoctailView.swift */,
 			);
 			path = SearchCoctailByIngridient;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 		30CA6AA22C4A88D40002A9C4 = {
 			isa = PBXGroup;
 			children = (
+				30AA4DAB2C56A4D200BCFAF1 /* CoctailModel.xcdatamodeld */,
 				30CA6AAD2C4A88D40002A9C4 /* CoctailsApp */,
 				30CA6AAC2C4A88D40002A9C4 /* Products */,
 			);
@@ -213,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				30CA6AC92C4AAFA30002A9C4 /* Controller.swift */,
+				30AA4DAE2C56ADA500BCFAF1 /* PersistenceController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -305,7 +314,7 @@
 			files = (
 				30F578E62C53F84E006CC767 /* SearchView.swift in Sources */,
 				30CA6AC82C4AADC10002A9C4 /* NetworkManager.swift in Sources */,
-				30BE31562C4D659100939AED /* SearchCoctailByIngridient.swift in Sources */,
+				30BE31562C4D659100939AED /* FavoriteCoctailView.swift in Sources */,
 				30B520592C5020B1003A0A75 /* DetailView.swift in Sources */,
 				30BE314E2C4D5EF600939AED /* TabBarView.swift in Sources */,
 				30CA6AB12C4A88D40002A9C4 /* RandomCoctailView.swift in Sources */,
@@ -318,9 +327,12 @@
 				30AA2B632C515338005F49C2 /* BackButtonView.swift in Sources */,
 				30CA6AAF2C4A88D40002A9C4 /* CoctailsApp.swift in Sources */,
 				30BE314C2C4D5D6200939AED /* RandomCoctailIgridients.swift in Sources */,
+				30AA4DAF2C56ADA500BCFAF1 /* PersistenceController.swift in Sources */,
 				30CA6AC62C4AADA90002A9C4 /* NetworkError.swift in Sources */,
 				30CA6ACA2C4AAFA30002A9C4 /* Controller.swift in Sources */,
 				30BE315A2C4D670F00939AED /* TabItems.swift in Sources */,
+				30AA4DAD2C56A4D200BCFAF1 /* CoctailModel.xcdatamodeld in Sources */,
+				3066D9422C555E3E00CBEEFB /* FavoriteButton.swift in Sources */,
 				30AA2B662C515EEB005F49C2 /* BigElement.swift in Sources */,
 				30BE314A2C4D4CCF00939AED /* RecipeModel.swift in Sources */,
 			);
@@ -523,6 +535,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		30AA4DAB2C56A4D200BCFAF1 /* CoctailModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				30AA4DAC2C56A4D200BCFAF1 /* FavCoctails.xcdatamodel */,
+			);
+			currentVersion = 30AA4DAC2C56A4D200BCFAF1 /* FavCoctails.xcdatamodel */;
+			path = CoctailModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 30CA6AA32C4A88D40002A9C4 /* Project object */;
 }
