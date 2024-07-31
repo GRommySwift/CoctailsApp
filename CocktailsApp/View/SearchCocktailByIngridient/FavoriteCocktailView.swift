@@ -10,7 +10,7 @@ import SwiftUI
 struct FavoriteCocktailView: View {
     
     @StateObject var controller = Controller()
-    @State var coreData = CoreDataController()
+    @ObservedObject var dataController: DataController
     @State private var favoriteCocktails: [Drink] = []
     var body: some View {
         NavigationView {
@@ -27,7 +27,7 @@ struct FavoriteCocktailView: View {
                     .padding(.top, UIScreen.main.bounds.height / 2.5)
                 } else {
                     ForEach(favoriteCocktails, id: \.idDrink) { cocktail in
-                        NavigationLink(destination: DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, cocktail: cocktail, isFavorite: { coreData.isFavorite(cocktail: cocktail) } , addFavorite: { coreData.addFavorite(cocktail: cocktail) }, removeFavorite: {  coreData.removeFavorite(cocktail: cocktail) })) {
+                        NavigationLink(destination: DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, cocktail: cocktail, isFavorite: { dataController.isFavorite(cocktail: cocktail) } , addFavorite: { dataController.addFavorite(cocktail: cocktail) }, removeFavorite: {  dataController.removeFavorite(cocktail: cocktail) })) {
                             BigElementDrink(cocktail: cocktail)
                         }
                         
@@ -37,7 +37,7 @@ struct FavoriteCocktailView: View {
             .background(.linearGradient(Gradient(colors: [.mint.opacity(0.8), .indigo.opacity(0.6)]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .onAppear {
                 Task {
-                    await favoriteCocktails = coreData.fetchFavorites()
+                    await favoriteCocktails = dataController.fetchFavorites()
                 }
             }
         }
@@ -49,6 +49,6 @@ struct FavoriteCocktailView: View {
 
 struct SearchByIngridient_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteCocktailView()
+        FavoriteCocktailView(dataController: DataController())
     }
 }

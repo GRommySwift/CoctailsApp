@@ -15,12 +15,13 @@ final class Controller: ObservableObject {
     @Published var serchedCocktailsByName: [Drink] = []
     @Published var errorMessage: String?
     
-    init() {
-        Task {
-            await fetchRandomCocktail()
-            await fetchSixRandomCocktails()
-        }
-    }
+//    init() {
+//        print("Im running - initializing")
+//        Task {
+//           await fetchSixRandomCocktails()
+//            // await fetchRandomCocktail()
+//        }
+//    }
     
     func clearSearchedCocktails() {
         self.serchedCocktailsByName = []
@@ -30,8 +31,9 @@ final class Controller: ObservableObject {
     func fetchRandomCocktail() async {
         do {
             let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstans.randomCocktailURL)
+            print("Im running - random coctail")
             randomCocktail = cocktail.drinks
-           // recipe = parseAndFilterRecipe(from: randomCocktail)
+           
         } catch {
             if let error = error as? NetworkError {
                 print(error)
@@ -42,6 +44,7 @@ final class Controller: ObservableObject {
     func fetchSixRandomCocktails() async {
         var i = 6
         do {
+            print("Im running - 6 random coctails")
             while i > 0 {
                 let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstans.randomCocktailURL)
                 if !sixRandomCocktails.contains(cocktail.drinks) {

@@ -10,30 +10,31 @@ import SwiftUI
 struct TabBarView: View {
     @State private var selectedIndex: Int = 0
     @StateObject var controller = Controller()
+    @ObservedObject var dataController: DataController
     
-    init() {
-        
-        let appearance = UITabBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor.clear
-        UITabBar.appearance().standardAppearance = appearance
-        
-    }
+//    init() {
+//
+//        let appearance = UITabBarAppearance()
+//        appearance.configureWithTransparentBackground()
+//        appearance.backgroundColor = UIColor.clear
+//        UITabBar.appearance().standardAppearance = appearance
+//
+//    }
     
     var body: some View {
         
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedIndex) {
-                CocktailsMainView()
+                CocktailsMainView(dataController: dataController)
                     .tag(0)
                 
-                RandomCocktailView()
+                RandomCocktailView(dataController: dataController)
                     .tag(1)
                 
-                SearchCocktailByName()
+                SearchCocktailByName(dataController: dataController)
                     .tag(2)
                 
-                FavoriteCocktailView()
+                FavoriteCocktailView(dataController: dataController)
                     .tag(3)
                     
             }
@@ -90,6 +91,6 @@ extension TabBarView {
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView()
+        TabBarView(dataController: DataController())
     }
 }

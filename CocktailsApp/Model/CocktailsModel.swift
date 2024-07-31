@@ -40,7 +40,11 @@ struct Drink: Decodable, Equatable {
          strMeasure13, strMeasure14, strMeasure15].compactMap { $0 }
     }
     
+    private func filterArrays(arrayForFiltering: [String]) -> [String] {
+        arrayForFiltering.filter({ $0 != "" && $0 != " "})
+    }
+    
     func getRecipe() -> RecipeModel {
-        RecipeModel(ingredients: getIngredients(), proportions: getMeasures())
+        RecipeModel(ingredients: filterArrays(arrayForFiltering: getIngredients()), proportions: filterArrays(arrayForFiltering: getMeasures()))
     }
 }

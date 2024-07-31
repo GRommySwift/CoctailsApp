@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchCocktailByName: View {
     @StateObject var controller = Controller()
-    @State var coreData = CoreDataController()
+    @ObservedObject var dataController: DataController
     @State var inputText: String = ""
     var body: some View {
         NavigationView {
@@ -24,7 +24,7 @@ struct SearchCocktailByName: View {
                 })
                 ForEach(controller.serchedCocktailsByName, id: \.idDrink) { cocktail in
                     HStack {
-                        NavigationLink(destination: DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, cocktail: cocktail, isFavorite: { coreData.isFavorite(cocktail: cocktail) } , addFavorite: { coreData.addFavorite(cocktail: cocktail) }, removeFavorite: {  coreData.removeFavorite(cocktail: cocktail) })) {
+                        NavigationLink(destination: DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, cocktail: cocktail, isFavorite: { dataController.isFavorite(cocktail: cocktail) } , addFavorite: { dataController.addFavorite(cocktail: cocktail) }, removeFavorite: {  dataController.removeFavorite(cocktail: cocktail) })) {
                             BigElementDrink(cocktail: cocktail)
                         }
                     }
@@ -39,7 +39,7 @@ struct SearchCocktailByName: View {
 
 struct SearchCocktailByName_Previews: PreviewProvider {
     static var previews: some View {
-        SearchCocktailByName()
+        SearchCocktailByName(dataController: DataController())
     }
 }
 

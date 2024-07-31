@@ -29,9 +29,10 @@ struct FavoriteButton: View {
                     .foregroundColor(.black)
                     .opacity(0.3)
                 Image(isFavorite ? "star.fill" : "star")
+                    .renderingMode(.template)
                     .font(.title3)
                     .fontWeight(.medium)
-                    .foregroundColor(isFavorite ? .orange : .gray)
+                    .foregroundColor(isFavorite ? .yellow : .white)
                     .opacity(0.8)
             }
         }

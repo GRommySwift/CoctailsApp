@@ -1,5 +1,5 @@
 //
-//  RandomCocktailIgridients.swift
+//  RandomCocktailIgredients .swift
 //  CocktailsApp
 //
 //  Created by Roman on 21/07/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CocktailIgridients: View {
+struct CocktailIngredients: View {
     let recipe: RecipeModel
     var body: some View {
         VStack(spacing: 0) {

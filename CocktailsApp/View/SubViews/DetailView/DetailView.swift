@@ -24,7 +24,7 @@ struct DetailView: View {
                 CocktailAsyncImage(widthOfImage: widthOfImage, withText: true, cocktail: cocktail)
                 DescriptionCocktail(cocktail: cocktail)
                 Spacer()
-                CocktailIgridients(recipe: cocktail.getRecipe())
+                CocktailIngredients(recipe: cocktail.getRecipe())
             }
             .padding(.top, topPadding)
             .toolbar(.hidden, for: .navigationBar)
