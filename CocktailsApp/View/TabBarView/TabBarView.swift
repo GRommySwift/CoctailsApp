@@ -10,38 +10,30 @@ import SwiftUI
 struct TabBarView: View {
     @State private var selectedIndex: Int = 0
     @StateObject var controller = Controller()
-    @ObservedObject var dataController: DataController
     
-//    init() {
-//
-//        let appearance = UITabBarAppearance()
-//        appearance.configureWithTransparentBackground()
-//        appearance.backgroundColor = UIColor.clear
-//        UITabBar.appearance().standardAppearance = appearance
-//
-//    }
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = UIColor.clear
+        UITabBar.appearance().standardAppearance = appearance
+    }
     
     var body: some View {
         
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedIndex) {
-                CocktailsMainView(dataController: dataController)
+                CocktailsMainView()
                     .tag(0)
                 
-                RandomCocktailView(dataController: dataController)
+                RandomCocktailView()
                     .tag(1)
                 
-                SearchCocktailByName(dataController: dataController)
+                SearchCocktailByName()
                     .tag(2)
                 
-                FavoriteCocktailView(dataController: dataController)
+                FavoriteCocktailView()
                     .tag(3)
-                    
             }
-
-        
-            
-            
             
             ZStack {
                 HStack {
@@ -49,7 +41,7 @@ struct TabBarView: View {
                         Button {
                             selectedIndex = item.rawValue
                         } label: {
-                            customtabItem(imageName: item.iconName, title: item.title, isActive: (selectedIndex == item.rawValue))
+                            customTabItem(imageName: item.iconName, title: item.title, isActive: (selectedIndex == item.rawValue))
                         }
                     }
                 }
@@ -59,15 +51,12 @@ struct TabBarView: View {
             .background(.indigo.opacity(0.6))
             .cornerRadius(40)
             .padding(.horizontal, 26)
-
         }
-
     }
-        
 }
 
 extension TabBarView {
-    func customtabItem(imageName: String, title: String, isActive: Bool) -> some View {
+    func customTabItem(imageName: String, title: String, isActive: Bool) -> some View {
         HStack(spacing: 10) {
             Spacer()
             Image(imageName)
@@ -91,6 +80,7 @@ extension TabBarView {
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(dataController: DataController())
+        TabBarView()
+            .environment(\.managedObjectContext, DataController.shared.persistentContainer.viewContext)
     }
 }

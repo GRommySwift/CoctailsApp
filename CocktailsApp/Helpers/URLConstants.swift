@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct URLConstans {
+struct URLConstants {
     static var randomCocktailURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
     static var searchCocktailByNameURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 }

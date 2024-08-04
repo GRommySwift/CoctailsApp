@@ -9,16 +9,17 @@ import UIKit
 import CoreData
 
 @MainActor
-final class CoreDataController {
-    private let container: NSPersistentContainer
+final class CoreDataController: ObservableObject {
+    
+    @Published var favoriteCocktails: [Drink] = []
     
     init() {
-        container = PersistenceController.shared.container
+        Task {
+            await favoriteCocktails = fetchFavorites(context: DataController.shared.persistentContainer.viewContext)
+        }
     }
-    
-    
-    func addFavorite(cocktail: Drink) {
-        let context = container.viewContext
+
+    func addFavorite(cocktail: Drink, context: NSManagedObjectContext) {
         let drinkEntity = DrinkEntity(context: context)
         drinkEntity.idDrink = cocktail.idDrink
         drinkEntity.strDrink = cocktail.strDrink
@@ -63,8 +64,7 @@ final class CoreDataController {
         }
     }
     
-    func removeFavorite(cocktail: Drink) {
-        let context = container.viewContext
+    func removeFavorite(cocktail: Drink, context: NSManagedObjectContext) {
         let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "idDrink == %@", cocktail.idDrink)
         
@@ -79,24 +79,12 @@ final class CoreDataController {
         }
     }
     
-    func isFavorite(cocktail: Drink) -> Bool {
-        let context = container.viewContext
-        let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "idDrink == %@", cocktail.idDrink)
-        
-        do {
-            let count = try context.count(for: fetchRequest)
-            return count > 0
-        } catch {
-            print("Failed to fetch favorite drink: \(error)")
-            return false
-        }
+    func isFavorite(cocktail: Drink, context: NSManagedObjectContext) -> Bool {
+        favoriteCocktails.contains { $0.idDrink == cocktail.idDrink}
     }
     
-    func fetchFavorites() async -> [Drink] {
-        let context = container.viewContext
+    func fetchFavorites(context: NSManagedObjectContext) async -> [Drink] {
         let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
-        
         do {
             let results = try context.fetch(fetchRequest)
             return results.map { drinkEntity in
@@ -144,5 +132,4 @@ final class CoreDataController {
             return []
         }
     }
-
 }

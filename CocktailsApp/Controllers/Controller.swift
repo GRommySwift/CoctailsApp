@@ -12,26 +12,17 @@ import CoreData
 final class Controller: ObservableObject {
     @Published var sixRandomCocktails: [Drink] = []
     @Published var randomCocktail: [Drink] = []
-    @Published var serchedCocktailsByName: [Drink] = []
+    @Published var searchedCocktailsByName: [Drink] = []
     @Published var errorMessage: String?
     
-//    init() {
-//        print("Im running - initializing")
-//        Task {
-//           await fetchSixRandomCocktails()
-//            // await fetchRandomCocktail()
-//        }
-//    }
-    
     func clearSearchedCocktails() {
-        self.serchedCocktailsByName = []
+        self.searchedCocktailsByName = []
     }
-    
     
     func fetchRandomCocktail() async {
         do {
-            let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstans.randomCocktailURL)
-            print("Im running - random coctail")
+            let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstants.randomCocktailURL)
+            print("Im running - random cocktail")
             randomCocktail = cocktail.drinks
            
         } catch {
@@ -46,7 +37,7 @@ final class Controller: ObservableObject {
         do {
             print("Im running - 6 random coctails")
             while i > 0 {
-                let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstans.randomCocktailURL)
+                let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstants.randomCocktailURL)
                 if !sixRandomCocktails.contains(cocktail.drinks) {
                     sixRandomCocktails.append(contentsOf: cocktail.drinks)
                     i -= 1
@@ -65,11 +56,11 @@ final class Controller: ObservableObject {
         guard !cocktailName.isEmpty else { return }
         let trimmedString = cocktailName.trimmingCharacters(in: .whitespaces)
         let modifiedString = trimmedString.replacingOccurrences(of: " ", with: "_")
-        let url = "\(URLConstans.searchCocktailByNameURL)" + "\(modifiedString.lowercased())"
+        let url = "\(URLConstants.searchCocktailByNameURL)" + "\(modifiedString.lowercased())"
         Task {
             do {
                 let cocktail = try await NetworkManager.shared.getCocktail(url: url)
-                self.serchedCocktailsByName = cocktail.drinks
+                self.searchedCocktailsByName = cocktail.drinks
             } catch {
                 if let error = error as? NetworkError {
                     self.errorMessage = error.localizedDescription

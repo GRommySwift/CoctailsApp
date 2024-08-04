@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct CocktailsApp: App {
-    @StateObject private var dataController = DataController()
+    // @StateObject private var dataController = DataController()
     
     var body: some Scene {
         WindowGroup {
-            TabBarView(dataController: dataController)
-                .environmentObject(dataController)
+            TabBarView()
+                .environment(\.managedObjectContext, DataController.shared.persistentContainer.viewContext)
         }
     }
 }

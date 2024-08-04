@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct FavoriteButton: View {
+   // @State private var localChangesOfIsFavorite: Bool
     let cocktail: Drink
     let isFavorite: Bool
     let addFavorite: @MainActor () -> Void
     let removeFavorite: @MainActor () -> Void
     
+    
     var body: some View {
+        
         Button {
             if isFavorite {
                 removeFavorite()
-                print("deleted")
             } else {
                 addFavorite()
-                print("added")
             }
         } label: {
             ZStack {

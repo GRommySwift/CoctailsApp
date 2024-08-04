@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SearchCocktailByName: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var controller = Controller()
-    @ObservedObject var dataController: DataController
+    @StateObject var coreDataController = CoreDataController()
     @State var inputText: String = ""
     var body: some View {
         NavigationView {
@@ -22,9 +23,9 @@ struct SearchCocktailByName: View {
                         await controller.searchCocktailByName(cocktailName: query)
                     }
                 })
-                ForEach(controller.serchedCocktailsByName, id: \.idDrink) { cocktail in
+                ForEach(controller.searchedCocktailsByName, id: \.idDrink) { cocktail in
                     HStack {
-                        NavigationLink(destination: DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, cocktail: cocktail, isFavorite: { dataController.isFavorite(cocktail: cocktail) } , addFavorite: { dataController.addFavorite(cocktail: cocktail) }, removeFavorite: {  dataController.removeFavorite(cocktail: cocktail) })) {
+                        NavigationLink(destination: DetailView(cocktail: cocktail, widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, addFavorite: { coreDataController.addFavorite(cocktail: cocktail, context: managedObjectContext) }, removeFavorite: {  coreDataController.removeFavorite(cocktail: cocktail, context: managedObjectContext) })) {
                             BigElementDrink(cocktail: cocktail)
                         }
                     }
@@ -39,7 +40,8 @@ struct SearchCocktailByName: View {
 
 struct SearchCocktailByName_Previews: PreviewProvider {
     static var previews: some View {
-        SearchCocktailByName(dataController: DataController())
+        SearchCocktailByName()
+            .environment(\.managedObjectContext, DataController.shared.persistentContainer.viewContext)
     }
 }
 

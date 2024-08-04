@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct RandomCocktailView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var controller = Controller()
-    @ObservedObject var dataController: DataController
+    @StateObject var coreDataController = CoreDataController()
     @State private var isLoadedData = false
     var body: some View {
         NavigationView {
-            //ScrollView(.vertical, showsIndicators: false) {
             
             VStack(spacing: 10) {
                 ForEach(controller.randomCocktail, id: \.idDrink) { cocktail in
-                    DetailView(widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: true, cocktail: cocktail, isFavorite: { dataController.isFavorite(cocktail: cocktail) } , addFavorite: { dataController.addFavorite(cocktail: cocktail) }, removeFavorite: {  dataController.removeFavorite(cocktail: cocktail) })
+                    DetailView(cocktail: cocktail, widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: true, addFavorite: { coreDataController.addFavorite(cocktail: cocktail, context: managedObjectContext) }, removeFavorite: {  coreDataController.removeFavorite(cocktail: cocktail, context: managedObjectContext) })
                         .shadow(radius: 1)
                 }
                 .refreshable {
@@ -38,7 +38,8 @@ struct RandomCocktailView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RandomCocktailView(dataController: DataController())
+        RandomCocktailView()
+            .environment(\.managedObjectContext, DataController.shared.persistentContainer.viewContext)
     }
 }
 
