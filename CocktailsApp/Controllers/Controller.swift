@@ -14,6 +14,7 @@ final class Controller: ObservableObject {
     @Published var randomCocktail: [Drink] = []
     @Published var searchedCocktailsByName: [Drink] = []
     @Published var errorMessage: String?
+    @Published var favoriteCocktails: [Drink] = []
     
     func clearSearchedCocktails() {
         self.searchedCocktailsByName = []
@@ -22,7 +23,7 @@ final class Controller: ObservableObject {
     func fetchRandomCocktail() async {
         do {
             let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstants.randomCocktailURL)
-            print("Im running - random cocktail")
+         //   print("Im running - random cocktail")
             randomCocktail = cocktail.drinks
            
         } catch {
@@ -35,7 +36,7 @@ final class Controller: ObservableObject {
     func fetchSixRandomCocktails() async {
         var i = 6
         do {
-            print("Im running - 6 random coctails")
+          //  print("Im running - 6 random cocktails")
             while i > 0 {
                 let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstants.randomCocktailURL)
                 if !sixRandomCocktails.contains(cocktail.drinks) {

@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct SearchCocktailByName: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var controller = Controller()
-    @StateObject var coreDataController = CoreDataController()
     @State var inputText: String = ""
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -25,17 +24,22 @@ struct SearchCocktailByName: View {
                 })
                 ForEach(controller.searchedCocktailsByName, id: \.idDrink) { cocktail in
                     HStack {
-                        NavigationLink(destination: DetailView(cocktail: cocktail, widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, addFavorite: { coreDataController.addFavorite(cocktail: cocktail, context: managedObjectContext) }, removeFavorite: {  coreDataController.removeFavorite(cocktail: cocktail, context: managedObjectContext) })) {
+                        NavigationLink(destination:
+                                        DetailView(
+                                            cocktail: cocktail,
+                                            widthOfImage: UIScreen.main.bounds.width,
+                                            topPadding: 25,
+                                            buttonIsHidden: false
+                                        )
+                        ) {
                             BigElementDrink(cocktail: cocktail)
                         }
                     }
                 }
             }
             .background(.linearGradient(Gradient(colors: [.mint.opacity(0.8), .indigo.opacity(0.6)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-            
         }
     }
-    
 }
 
 struct SearchCocktailByName_Previews: PreviewProvider {

@@ -12,25 +12,24 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest private var favorite: FetchedResults<DrinkEntity>
+    @EnvironmentObject var coreDataController: CoreDataController
     let widthOfImage: CGFloat
     let topPadding: CGFloat
     let buttonIsHidden: Bool
     let cocktail: Drink
-    let addFavorite: @MainActor () -> Void
-    let removeFavorite: @MainActor () -> Void
+    // let controller: CoreDataController
     
     init(cocktail: Drink,
          widthOfImage: CGFloat,
          topPadding: CGFloat,
-         buttonIsHidden: Bool,
-         addFavorite: @escaping @MainActor () -> Void,
-         removeFavorite: @escaping @MainActor () -> Void) {
+         buttonIsHidden: Bool
+         //controller: CoreDataController
+    ) {
         self.cocktail = cocktail
         self.widthOfImage = widthOfImage
         self.topPadding = topPadding
         self.buttonIsHidden = buttonIsHidden
-        self.addFavorite = addFavorite
-        self.removeFavorite = removeFavorite
+        //self.controller = controller
         _favorite = FetchRequest(
             entity: DrinkEntity.entity(),
             sortDescriptors: [],
@@ -56,9 +55,18 @@ struct DetailView: View {
                         .padding(.leading, 20)
                 }
                 Spacer()
-                FavoriteButton(cocktail: cocktail, isFavorite: !favorite.isEmpty , addFavorite: addFavorite, removeFavorite: removeFavorite)
-                    .padding(.trailing, 20)
-                    .foregroundColor(.orange)
+                FavoriteButton(
+                    cocktail: cocktail,
+                    isFavorite: !favorite.isEmpty,
+                    addFavorite: {
+                        coreDataController.addFavorite(cocktail: cocktail, context: managedObjectContext)
+                    },
+                    removeFavorite: {
+                        coreDataController.removeFavorite(cocktail: cocktail, context: managedObjectContext)
+                    }
+                )
+                .padding(.trailing, 20)
+                .foregroundColor(.orange)
             }
             
         }

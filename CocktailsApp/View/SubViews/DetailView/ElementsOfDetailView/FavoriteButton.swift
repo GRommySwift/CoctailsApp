@@ -11,8 +11,8 @@ struct FavoriteButton: View {
    // @State private var localChangesOfIsFavorite: Bool
     let cocktail: Drink
     let isFavorite: Bool
-    let addFavorite: @MainActor () -> Void
-    let removeFavorite: @MainActor () -> Void
+    let addFavorite: () -> Void
+    let removeFavorite: () -> Void
     
     
     var body: some View {

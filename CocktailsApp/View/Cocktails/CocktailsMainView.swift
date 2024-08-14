@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct CocktailsMainView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var controller = Controller()
-    @StateObject var coreDataController = CoreDataController()
     @State private var isDataLoaded = false
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(controller.sixRandomCocktails, id: \.idDrink) { cocktail in
-                    NavigationLink(destination: DetailView(cocktail: cocktail, widthOfImage: UIScreen.main.bounds.width, topPadding: 25, buttonIsHidden: false, addFavorite: { coreDataController.addFavorite(cocktail: cocktail, context: managedObjectContext) }, removeFavorite: {  coreDataController.removeFavorite(cocktail: cocktail, context: managedObjectContext) })) {
+                    NavigationLink(
+                        destination: DetailView(
+                            cocktail: cocktail,
+                            widthOfImage: UIScreen.main.bounds.width,
+                            topPadding: 25,
+                            buttonIsHidden: false)
+                    ) {
                         BigElementDrink(cocktail: cocktail)
                     }
                 }
@@ -25,19 +30,14 @@ struct CocktailsMainView: View {
         }
         .onAppear {
             if !isDataLoaded {
-        Task {
-            await controller.fetchSixRandomCocktails()
-            isDataLoaded = true
+                Task {
+                    await controller.fetchSixRandomCocktails()
+                    isDataLoaded = true
                 }
             }
         }
     }
-    
-    
-
-    
 }
-
 
 struct CocktailsMainView_Previews: PreviewProvider {
     static var previews: some View {

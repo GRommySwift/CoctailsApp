@@ -8,17 +8,8 @@
 import UIKit
 import CoreData
 
-@MainActor
-final class CoreDataController: ObservableObject {
+final class CoreDataController: NSObject, ObservableObject {
     
-    @Published var favoriteCocktails: [Drink] = []
-    
-    init() {
-        Task {
-            await favoriteCocktails = fetchFavorites(context: DataController.shared.persistentContainer.viewContext)
-        }
-    }
-
     func addFavorite(cocktail: Drink, context: NSManagedObjectContext) {
         let drinkEntity = DrinkEntity(context: context)
         drinkEntity.idDrink = cocktail.idDrink
@@ -67,7 +58,6 @@ final class CoreDataController: ObservableObject {
     func removeFavorite(cocktail: Drink, context: NSManagedObjectContext) {
         let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "idDrink == %@", cocktail.idDrink)
-        
         do {
             let results = try context.fetch(fetchRequest)
             for result in results {
@@ -78,11 +68,7 @@ final class CoreDataController: ObservableObject {
             print("Failed to delete favorite drink: \(error)")
         }
     }
-    
-    func isFavorite(cocktail: Drink, context: NSManagedObjectContext) -> Bool {
-        favoriteCocktails.contains { $0.idDrink == cocktail.idDrink}
-    }
-    
+
     func fetchFavorites(context: NSManagedObjectContext) async -> [Drink] {
         let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
         do {

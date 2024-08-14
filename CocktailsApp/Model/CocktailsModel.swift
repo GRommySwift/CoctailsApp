@@ -41,7 +41,7 @@ struct Drink: Decodable, Equatable {
     }
     
     private func filterArrays(arrayForFiltering: [String]) -> [String] {
-        arrayForFiltering.filter({ $0 != "" && $0 != " "})
+        arrayForFiltering.filter({ !$0.isEmpty && $0 != " "})
     }
     
     func getRecipe() -> RecipeModel {

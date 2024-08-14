@@ -59,9 +59,3 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RandomCocktailView()
-//    }
-//}
