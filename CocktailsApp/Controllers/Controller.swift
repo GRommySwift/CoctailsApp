@@ -14,7 +14,7 @@ final class Controller: ObservableObject {
     @Published var randomCocktail: [Drink] = []
     @Published var searchedCocktailsByName: [Drink] = []
     @Published var errorMessage: String?
-    @Published var favoriteCocktails: [Drink] = []
+    
     
     func clearSearchedCocktails() {
         self.searchedCocktailsByName = []

@@ -66,7 +66,7 @@ extension TabBarView {
                 .frame(width: 20, height: 20)
             if isActive {
                 Text(title)
-                    .font(.system(size: 14))
+                    .font(.Caption)
                     .foregroundColor(isActive ? .black : .gray)
             }
             Spacer()
@@ -82,5 +82,6 @@ struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView()
             .environment(\.managedObjectContext, DataController.shared.persistentContainer.viewContext)
+            .environmentObject(CoreDataController())
     }
 }

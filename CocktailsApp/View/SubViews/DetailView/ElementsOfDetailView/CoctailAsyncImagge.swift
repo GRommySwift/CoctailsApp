@@ -34,8 +34,7 @@ struct CocktailAsyncImage: View {
                     .background(Color.white)
                     .cornerRadius(30, corners: .bottomLeft)
                     .cornerRadius(30, corners: .bottomRight)
-                    .font(.title2)
-                    .fontWeight(.bold)
+                    .font(.Headline2)
                     .foregroundColor(.cyan).opacity(0.9)
                     .padding(.bottom, 15)
             }

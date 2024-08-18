@@ -10,6 +10,8 @@ import CoreData
 
 final class CoreDataController: NSObject, ObservableObject {
     
+    @Published var favoriteCocktails: [Drink] = []
+    
     func addFavorite(cocktail: Drink, context: NSManagedObjectContext) {
         let drinkEntity = DrinkEntity(context: context)
         drinkEntity.idDrink = cocktail.idDrink

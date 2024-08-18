@@ -17,19 +17,16 @@ struct DetailView: View {
     let topPadding: CGFloat
     let buttonIsHidden: Bool
     let cocktail: Drink
-    // let controller: CoreDataController
     
     init(cocktail: Drink,
          widthOfImage: CGFloat,
          topPadding: CGFloat,
          buttonIsHidden: Bool
-         //controller: CoreDataController
     ) {
         self.cocktail = cocktail
         self.widthOfImage = widthOfImage
         self.topPadding = topPadding
         self.buttonIsHidden = buttonIsHidden
-        //self.controller = controller
         _favorite = FetchRequest(
             entity: DrinkEntity.entity(),
             sortDescriptors: [],
@@ -41,7 +38,11 @@ struct DetailView: View {
         
         ZStack(alignment: .topLeading) {
             ScrollView(.vertical, showsIndicators: false) {
-                CocktailAsyncImage(widthOfImage: widthOfImage, withText: true, cocktail: cocktail)
+                CocktailAsyncImage(
+                    widthOfImage: widthOfImage,
+                    withText: true,
+                    cocktail: cocktail
+                )
                 DescriptionCocktail(cocktail: cocktail)
                 Spacer()
                 CocktailIngredients(recipe: cocktail.getRecipe())

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+// comment
 
 struct CocktailIngredients: View {
     let recipe: RecipeModel
@@ -26,7 +27,7 @@ struct CocktailIngredients: View {
                     .frame(width: UIScreen.main.bounds.width / 3.2)
                     .background(.red.opacity(0.6))
                 }
-                .font(.headline)
+                .font(.Body)
             }
         }
     }
