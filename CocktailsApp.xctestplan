@@ -1,0 +1,22 @@
+{
+  "configurations" : [
+    {
+      "id" : "B9EF6EA1-AD9F-42F9-B4B1-9D0FC758AB67",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CocktailsApp.xcodeproj",
+      "identifier" : "30CA6AAA2C4A88D40002A9C4",
+      "name" : "CocktailsApp"
+    }
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}

@@ -13,7 +13,7 @@ struct DescriptionCocktail: View {
     var body: some View {
         VStack(spacing: 5) {
             Text("Category - \(cocktail.strCategory)" + " " + "(\(cocktail.strAlcoholic))")
-                .font(.system(size: 22, weight: .bold))
+                
                 .foregroundColor(Color.red).opacity(0.8)
                 .padding(.horizontal, 20)
             Text("Instruction:")
@@ -21,13 +21,11 @@ struct DescriptionCocktail: View {
             Text(cocktail.strInstructions)
                 .foregroundColor(Color.white)
                 .padding(.horizontal, 20)
-            
+                
             Text("Ingridients")
-                .font(.headline)
-                .fontWeight(.bold)
-            
-            
+                
         }
+        .font(.Body)
     }
 }
 

@@ -19,12 +19,10 @@ struct BigElementDrink: View {
             }
             VStack {
                 Text(cocktail.strDrink)
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.Body)
                     .foregroundColor(.white)
                 Text("Category - \(cocktail.strCategory)" + " " + "(\(cocktail.strAlcoholic))")
-                    .font(.system(size: 16))
-                    .italic()
-                    .fontWeight(.bold)
+                    .font(.Caption)
                     .foregroundColor(Color.red.opacity(0.8))
             }
             .frame(width: UIScreen.main.bounds.width / 2)

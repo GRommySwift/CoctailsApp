@@ -29,8 +29,7 @@ struct SearchCocktailByName: View {
                                             cocktail: cocktail,
                                             widthOfImage: UIScreen.main.bounds.width,
                                             topPadding: 25,
-                                            buttonIsHidden: false
-                                        )
+                                            buttonIsHidden: false                                        )
                         ) {
                             BigElementDrink(cocktail: cocktail)
                         }

@@ -15,17 +15,19 @@ struct FavoriteCocktailView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                if controller.favoriteCocktails.isEmpty {
-                    HStack(alignment: .center) {
+                if coreDataController.favoriteCocktails.isEmpty {
+                    HStack {
                         Text("You don't have favorite cocktails...")
-                            .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.red.opacity(0.7))
-                            .shadow(radius: 5)
+                            .multilineTextAlignment(.center)
+                            .font(.Headline2)
+                            .foregroundColor(.black.opacity(0.4))
+                            .shadow(radius: 3)
                     }
+
                     .frame(width: UIScreen.main.bounds.width)
                     .padding(.top, UIScreen.main.bounds.height / 2.5)
                 } else {
-                    ForEach(controller.favoriteCocktails, id: \.idDrink) { cocktail in
+                    ForEach(coreDataController.favoriteCocktails, id: \.idDrink) { cocktail in
                         NavigationLink(destination:
                                         DetailView(
                                             cocktail: cocktail,
@@ -35,6 +37,12 @@ struct FavoriteCocktailView: View {
                                         )
                         ) {
                             BigElementDrink(cocktail: cocktail)
+//                                .swipeActions {
+//                                    Button("Delete") {
+//                                        
+//                                    }
+//                                    .tint(.red)
+//                                }
                         }
                     }
                 }
@@ -42,7 +50,7 @@ struct FavoriteCocktailView: View {
             .background(.linearGradient(Gradient(colors: [.mint.opacity(0.8), .indigo.opacity(0.6)]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .onAppear {
                 Task {
-                    await controller.favoriteCocktails = coreDataController.fetchFavorites(context: managedObjectContext)
+                    await coreDataController.favoriteCocktails = coreDataController.fetchFavorites(context: managedObjectContext)
                 }
             }
         }
@@ -54,5 +62,6 @@ struct SearchByIngridient_Previews: PreviewProvider {
     static var previews: some View {
         FavoriteCocktailView()
             .environment(\.managedObjectContext, DataController.shared.persistentContainer.viewContext)
+            .environmentObject(CoreDataController())
     }
 }
