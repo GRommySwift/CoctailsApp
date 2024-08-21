@@ -19,7 +19,7 @@ struct FavoriteCocktailView: View {
                     HStack {
                         Text("You don't have favorite cocktails...")
                             .multilineTextAlignment(.center)
-                            .font(.Headline2)
+                            .font(.headline2)
                             .foregroundColor(.black.opacity(0.4))
                             .shadow(radius: 3)
                     }

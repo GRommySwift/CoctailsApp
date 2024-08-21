@@ -11,15 +11,14 @@ struct TestFontsView: View {
     var body: some View {
         
         VStack(alignment: .leading, spacing: 30) {
-            Text("Head Line 1")
-                .font(.Headline1)
-               
-            Text("Head Line 1")
-                .font(.Headline2)
-            Text("Head Line 1")
-                .font(.Body)
-            Text("Head Line 1")
-                .font(.Caption)
+            Text("This is headline1")
+                .font(.headline1)
+            Text("This is headline2")
+                .font(.headline2)
+            Text("This is body")
+                .font(.body)
+            Text("This is caption ")
+                .font(.caption)
         }
     }
 }
@@ -29,3 +28,4 @@ struct TestFontsView_Previews: PreviewProvider {
         TestFontsView()
     }
 }
+

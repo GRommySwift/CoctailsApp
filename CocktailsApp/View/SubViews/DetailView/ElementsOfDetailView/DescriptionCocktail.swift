@@ -25,7 +25,7 @@ struct DescriptionCocktail: View {
             Text("Ingridients")
                 
         }
-        .font(.Body)
+        .font(.body)
     }
 }
 

@@ -66,7 +66,7 @@ extension TabBarView {
                 .frame(width: 20, height: 20)
             if isActive {
                 Text(title)
-                    .font(.Caption)
+                    .font(.caption)
                     .foregroundColor(isActive ? .black : .gray)
             }
             Spacer()
