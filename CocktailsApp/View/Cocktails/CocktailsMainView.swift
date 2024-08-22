@@ -8,33 +8,34 @@
 import SwiftUI
 
 struct CocktailsMainView: View {
+    
     @StateObject var controller = Controller()
-    @State private var isDataLoaded = false
+    
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(controller.sixRandomCocktails, id: \.idDrink) { cocktail in
-                    NavigationLink(
-                        destination: DetailView(
-                            cocktail: cocktail,
-                            widthOfImage: UIScreen.main.bounds.width,
-                            topPadding: 25,
-                            buttonIsHidden: false)
-                    ) {
-                        BigElementDrink(cocktail: cocktail)
-                    }
+                    cocktailCardButton(cocktail: cocktail)
                 }
             }
-            .background(.linearGradient(Gradient(colors: [.mint.opacity(0.8), .indigo.opacity(0.6)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .background(.customBackgroundColor)
         }
-        .onAppear {
-            if !isDataLoaded {
-                Task {
-                    await controller.fetchSixRandomCocktails()
-                    isDataLoaded = true
-                }
-            }
+    }
+}
+
+// MARK: - View components
+
+private extension CocktailsMainView {
+    func cocktailCardButton(cocktail: Drink) -> some View {
+        NavigationLink(
+            destination: DetailView(
+                cocktail: cocktail,
+                widthOfImage: UIScreen.main.bounds.width,
+                topPadding: 25,
+                buttonIsHidden: false)
+        ) {
+            BigElementDrink(cocktail: cocktail)
         }
     }
 }
@@ -45,4 +46,3 @@ struct CocktailsMainView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, DataController.shared.persistentContainer.viewContext)
     }
 }
-

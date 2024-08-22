@@ -49,7 +49,7 @@ struct DetailView: View {
             }
             .padding(.top, topPadding)
             .toolbar(.hidden, for: .navigationBar)
-            .background(.linearGradient(Gradient(colors: [.mint.opacity(0.8), .indigo.opacity(0.6)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .background(.customBackgroundColor)
             HStack{
                 if !buttonIsHidden {
                     BackButtonView()

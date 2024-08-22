@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TestFontsView: View {
+    
     var body: some View {
-        
         VStack(alignment: .leading, spacing: 30) {
             Text("This is headline1")
                 .font(.headline1)
@@ -28,4 +28,3 @@ struct TestFontsView_Previews: PreviewProvider {
         TestFontsView()
     }
 }
-

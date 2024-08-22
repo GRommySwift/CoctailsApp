@@ -47,7 +47,7 @@ struct FavoriteCocktailView: View {
                     }
                 }
             }
-            .background(.linearGradient(Gradient(colors: [.mint.opacity(0.8), .indigo.opacity(0.6)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .background(.customBackgroundColor)
             .onAppear {
                 Task {
                     await coreDataController.favoriteCocktails = coreDataController.fetchFavorites(context: managedObjectContext)
