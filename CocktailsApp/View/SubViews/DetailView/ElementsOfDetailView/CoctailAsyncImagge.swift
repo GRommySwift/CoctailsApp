@@ -31,11 +31,11 @@ struct CocktailAsyncImage: View {
             if withText {
                 Text(cocktail.strDrink)
                     .frame(width: widthOfImage - 32, height: 60)
-                    .background(Color.white)
+                    .background(.foregroundColor)
                     .cornerRadius(30, corners: .bottomLeft)
                     .cornerRadius(30, corners: .bottomRight)
                     .font(.headline2)
-                    .foregroundColor(.cyan).opacity(0.9)
+                    .foregroundColor(.black).opacity(0.7)
                     .padding(.bottom, 15)
             }
             

@@ -14,12 +14,12 @@ struct DescriptionCocktail: View {
         VStack(spacing: 5) {
             Text("Category - \(cocktail.strCategory)" + " " + "(\(cocktail.strAlcoholic))")
                 
-                .foregroundColor(Color.red).opacity(0.8)
+                .foregroundColor(Color.black).opacity(0.8)
                 .padding(.horizontal, 20)
             Text("Instruction:")
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.black).opacity(0.8)
             Text(cocktail.strInstructions)
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.black).opacity(0.7)
                 .padding(.horizontal, 20)
                 
             Text("Ingridients")

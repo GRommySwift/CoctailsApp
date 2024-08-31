@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TabBarView: View {
     @State private var selectedIndex: Int = 0
-    @StateObject var controller = Controller()
     
     init() {
         let appearance = UITabBarAppearance()
@@ -48,9 +47,11 @@ struct TabBarView: View {
                 .padding(6)
             }
             .frame(height: 80)
-            .background(.indigo.opacity(0.6))
+            .background(.white.opacity(0.5))
             .cornerRadius(40)
             .padding(.horizontal, 26)
+        }.task {
+            print("Tab")
         }
     }
 }
@@ -62,7 +63,7 @@ extension TabBarView {
             Image(imageName)
                 .resizable()
                 .renderingMode(.template)
-                .foregroundColor(isActive ? .black : .white)
+                .foregroundColor(isActive ? .black : .gray)
                 .frame(width: 20, height: 20)
             if isActive {
                 Text(title)
@@ -72,7 +73,7 @@ extension TabBarView {
             Spacer()
         }
         .frame(width: isActive ? 140 : 60, height: 60)
-        .background(isActive ? .white.opacity(0.6) : .clear)
+        .background(isActive ? .foregroundColor.opacity(0.8) : .clear)
         .cornerRadius(30)
     }
 }

@@ -17,15 +17,6 @@ final class Controller: ObservableObject {
     @Published private var isDataLoaded = false
     
     
-    init() {
-        if !isDataLoaded {
-            Task {
-                await fetchSixRandomCocktails()
-//                isDataLoaded = true
-            }
-        }
-
-    }
     func clearSearchedCocktails() {
         self.searchedCocktailsByName = []
     }
@@ -33,9 +24,8 @@ final class Controller: ObservableObject {
     func fetchRandomCocktail() async {
         do {
             let cocktail = try await NetworkManager.shared.getCocktail(url: URLConstants.randomCocktailURL)
-         //   print("Im running - random cocktail")
+            //print("Im running - random cocktail")
             randomCocktail = cocktail.drinks
-           
         } catch {
             if let error = error as? NetworkError {
                 print(error)

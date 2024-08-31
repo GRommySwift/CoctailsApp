@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RandomCocktailView: View {
     @StateObject var controller = Controller()
-    @State private var isLoadedData = false
     
     var body: some View {
         NavigationView {
@@ -20,20 +19,18 @@ struct RandomCocktailView: View {
                         widthOfImage: UIScreen.main.bounds.width,
                         topPadding: 25,
                         buttonIsHidden: false)
-                        .shadow(radius: 1)
+                    .shadow(radius: 1)
                 }
                 .refreshable {
                     await controller.fetchRandomCocktail()
+                    print("update")
                 }
             }
-            .onAppear {
-                if !isLoadedData {
-                    Task {
-                        await controller.fetchRandomCocktail()
-                        isLoadedData = true
-                    }
-                }
-            }
+        }
+        .task {
+            
+                await controller.fetchRandomCocktail()
+            
         }
     }
 }

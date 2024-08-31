@@ -20,15 +20,15 @@ struct BigElementDrink: View {
             VStack {
                 Text(cocktail.strDrink)
                     .font(.body)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black).opacity(0.6)
                 Text("Category - \(cocktail.strCategory)" + " " + "(\(cocktail.strAlcoholic))")
                     .font(.caption)
-                    .foregroundColor(Color.red.opacity(0.8))
+                    .foregroundColor(.gray).opacity(0.8)
             }
             .frame(width: UIScreen.main.bounds.width / 2)
             
         }
-        .background(.green.opacity(0.3)).cornerRadius(40)
+        .background(.foregroundColor).cornerRadius(40)
         .shadow(radius: 6)
         .padding(.horizontal, 20)
     }

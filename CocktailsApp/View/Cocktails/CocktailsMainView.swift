@@ -21,6 +21,9 @@ struct CocktailsMainView: View {
             }
             .background(.customBackgroundColor)
         }
+        .task {
+            await controller.fetchSixRandomCocktails()
+        }
     }
 }
 

@@ -17,15 +17,17 @@ struct CocktailIngredients: View {
                     VStack {
                         Text(recipe.ingredients[index])
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundStyle(.black).opacity(0.8)
                     }
                     .frame(width: UIScreen.main.bounds.width / 1.8)
                     .padding(.leading, 5)
                     .background(Color.white.opacity(0.8))
                     VStack {
                         Text(recipe.proportions[index])
+                            .foregroundStyle(.black).opacity(0.8)
                     }
                     .frame(width: UIScreen.main.bounds.width / 3.2)
-                    .background(.red.opacity(0.6))
+                    .background(.foregroundColor)
                 }
                 .font(.body)
             }
