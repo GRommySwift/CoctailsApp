@@ -8,3 +8,11 @@
    
 ## This my pet-project created under mentorship program.
 ## How it looks you can see bellow.
+
+
+
+<p align="leading">
+  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/1.png" width="300"/>
+  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/2.png" width="300"/>
+  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/3.gif" width="300"/>
+</p>
