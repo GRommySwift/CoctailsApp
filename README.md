@@ -12,7 +12,7 @@
 
 
 <p align="leading">
-  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/1.png" width="300"/>
-  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/2.png" width="300"/>
-  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/3.gif" width="300"/>
+  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/1.png" width="250"/>
+  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/2.png" width="250"/>
+  <img src="https://github.com/GRommySwift/CoctailsApp/blob/main/3.gif" width="250"/>
 </p>
