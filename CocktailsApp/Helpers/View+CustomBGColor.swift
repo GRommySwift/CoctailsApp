@@ -24,7 +24,7 @@ extension ShapeStyle where Self == Color {
         Color.init(hex: 0xd8e5f7)
     }
     static var foregroundColor: Color {
-        Color.init(hex: 0xfedcdb)
+        Color.init(hex: 0xd8eedf)
     }
     
     static var customBackgroundColor: LinearGradient {

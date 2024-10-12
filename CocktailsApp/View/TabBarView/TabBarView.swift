@@ -47,7 +47,7 @@ struct TabBarView: View {
                 .padding(6)
             }
             .frame(height: 80)
-            .background(.white.opacity(0.5))
+            .background(.white.opacity(0.8))
             .cornerRadius(40)
             .padding(.horizontal, 26)
         }.task {

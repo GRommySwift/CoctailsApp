@@ -28,12 +28,12 @@
             </Actions>
             <Locations>
                <Location
-                  uuid = "B1F67067-EE7F-4849-9B6D-4C53DE947E18 - f8197cbdf1279e3f"
+                  uuid = "B1F67067-EE7F-4849-9B6D-4C53DE947E18 - f50ed26cdbffd5b8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in CocktailsApp.RandomCocktailView.body.getter : some"
-                  moduleName = "CocktailsApp"
+                  moduleName = "CocktailsApp.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/roman/Desktop/IOS/myLessons/CoctailsApp/CocktailsApp/View/RandomCocktailView/RandomCocktailView.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -42,12 +42,12 @@
                   endingLineNumber = "32">
                </Location>
                <Location
-                  uuid = "B1F67067-EE7F-4849-9B6D-4C53DE947E18 - 9f9dbfea5cdf61c8"
+                  uuid = "B1F67067-EE7F-4849-9B6D-4C53DE947E18 - 928a113b76072a4f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(2) await resume partial function for closure #2 @Sendable () async -&gt; () in CocktailsApp.RandomCocktailView.body.getter : some"
-                  moduleName = "CocktailsApp"
+                  moduleName = "CocktailsApp.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/roman/Desktop/IOS/myLessons/CoctailsApp/CocktailsApp/View/RandomCocktailView/RandomCocktailView.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -56,12 +56,12 @@
                   endingLineNumber = "32">
                </Location>
                <Location
-                  uuid = "B1F67067-EE7F-4849-9B6D-4C53DE947E18 - 70c248d702b34a39"
+                  uuid = "B1F67067-EE7F-4849-9B6D-4C53DE947E18 - 7dd5e606286b01be"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "(3) suspend resume partial function for closure #2 @Sendable () async -&gt; () in CocktailsApp.RandomCocktailView.body.getter : some"
-                  moduleName = "CocktailsApp"
+                  moduleName = "CocktailsApp.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/roman/Desktop/IOS/myLessons/CoctailsApp/CocktailsApp/View/RandomCocktailView/RandomCocktailView.swift"
                   startingColumnNumber = "9223372036854775807"
