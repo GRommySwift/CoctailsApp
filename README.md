@@ -1,7 +1,7 @@
 ## CoctailsApp is a appliction with recipes of coctails:
 
  - created on SwiftUI.
- - created on MVVM architecture.
+ - created on MVC architecture.
  - with network sevice.
  - with fetching data from api.
  - with saving into Core Data.
